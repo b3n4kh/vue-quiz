@@ -1,5 +1,5 @@
 <template>
-  <div class="question-box-container">
+  <div class="question-box-container container-fluid bg-light">
     <b-jumbotron>
       <template slot="lead">
         {{ currentQuestion.question }}
@@ -18,16 +18,19 @@
         </b-list-group-item>
       </b-list-group>
 
+      <div class="btn-group d-flex" role="group">
       <b-button
+        class="w-100"
         variant="primary"
         @click="submitAnswer"
         :disabled="selectedIndex === null || answered"
       >
         Submit
       </b-button>
-      <b-button @click="next" variant="success">
+      <b-button @click="next" class="w-100" variant="success">
         Next
       </b-button>
+      </div>
     </b-jumbotron>
   </div>
 </template>

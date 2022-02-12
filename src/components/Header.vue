@@ -1,8 +1,13 @@
 <template>
   <div>
     <b-nav tabs>
-      <b-nav-item disabled><b>Fancy Quiz App</b></b-nav-item>
-      <b-nav-item disabled>Counter: {{ numCorrect }}/{{ numTotal }}</b-nav-item>
+    <select :catalog="catalog" @change="catalogChange">
+      <option value="src">SeeFunk</option>
+      <option value="src_tk">Technik</option>
+      <option value="src_re">Recht</option>
+      <option value="src_sb">SonderBestimmungen</option>
+    </select>
+      <b-nav-item disabled>Correct: {{ numCorrect }} Answered: {{ numAnswered }} Total: {{ numTotal }}</b-nav-item>
     </b-nav>
   </div>
 </template>
@@ -11,7 +16,14 @@
 export default {
   props: [
     'numCorrect',
-    'numTotal'
-  ]
+    'numTotal',
+    'numAnswered',
+    'catalog'
+  ],
+  methods: {
+    catalogChange(event) {
+      this.$emit('catalogChanged', event.target.value)
+    }
+  }
 }
 </script>
