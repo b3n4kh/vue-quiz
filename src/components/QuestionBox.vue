@@ -27,7 +27,7 @@
       >
         Submit
       </b-button>
-      <b-button @click="next" class="w-100" variant="success">
+      <b-button @click="next" class="w-100" variant="success" :disabled="!answered">
         Next
       </b-button>
       </div>
@@ -50,16 +50,6 @@ export default {
       correctIndex: null,
       shuffledAnswers: [],
       answered: false
-    }
-  },
-  computed: {
-    answers() {
-      // this function is no longer used in finished code
-      // it is replaced by the watch function below and the
-      // shuffleAnswers method
-      let answers = [...this.currentQuestion.incorrect_answers]
-      answers.push(this.currentQuestion.correct_answer)
-      return answers
     }
   },
   watch: {

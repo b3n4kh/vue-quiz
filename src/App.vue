@@ -66,7 +66,7 @@ export default {
     },
     get_questions(catalog) {
       console.log('Getting Catalog: ' + catalog)
-      fetch('https://seefunk.b3n.eu/' + catalog + '.json', {
+      fetch('/' + catalog + '.json', {
         method: 'get'
       }).then((response) => {
           return response.json()
